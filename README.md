@@ -1,75 +1,38 @@
-# Nuxt Minimal Starter
+# ParagraphCMS Nuxt Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Ten README jest krótką dokumentacją projektu ParagraphCMS dla przykładu Nuxt Starter. Projekt pokazuje podstawową integrację Nuxt: strony w `app/pages/blog`, serwerowe endpointy Nitro w `server/api` i renderowanie treści przez `@paragraphcms/parser-vue`.
 
-## Setup
+Oficjalny kontekst: [ParagraphCMS Nuxt Quickstart](https://paragraphcms.com/docs/quickstart/nuxt).
 
-Make sure to install dependencies:
+## Konfiguracja
+
+1. Skopiuj `.env.example` do `.env`.
+2. Ustaw `NUXT_PARAGRAPH_API_KEY` kluczem API z ParagraphCMS.
+3. Wpisy powinny mieć slug, bo trasa `app/pages/blog/[slug].vue` pobiera wpis po slug.
+
+## Uruchomienie
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+Build/generowanie i podgląd:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+pnpm preview
 ```
 
-Locally preview production build:
+Do statycznego generowania użyj:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+pnpm generate
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Najważniejsze pliki
+
+- `server/utils/paragraph.ts` - serwerowy klient ParagraphCMS.
+- `server/api/blog.get.ts` - lista wpisów.
+- `server/api/blog/[slug].get.ts` - pojedynczy wpis.
+- `app/components/blog/` - komponenty listy i pojedynczego wpisu.
